@@ -3,7 +3,7 @@
 #
 # See this guide on how to implement these action:
 # https://rasa.com/docs/rasa/core/actions/#custom-actions/
-
+# python -m rasa run --m ./models --endpoints endpoints.yml --port 5005 -vv --enable-api
 
 # This is a simple example for a custom action which utters "Hello World!"
 
