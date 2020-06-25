@@ -3,7 +3,7 @@
 #
 # See this guide on how to implement these action:
 # https://rasa.com/docs/rasa/core/actions/#custom-actions/
-# python -m rasa run --m ./models --endpoints endpoints.yml --port 5005 -vv --enable-api
+# rasa run -m models --enable-api --cors "*" --debug
 
 # This is a simple example for a custom action which utters "Hello World!"
 
@@ -32,7 +32,7 @@ class ActionCoronaTracker(Action):
                 state = e['value']
 
         for data in response["statewise"]:
-            if data["state"] == state.title():
+            if data["state"].lower() == state.lower():
                 active = data["active"]
 
         dispatcher.utter_message(text="Total active cases in {} are {}".format(state.title(),active))
